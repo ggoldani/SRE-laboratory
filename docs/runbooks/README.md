@@ -28,13 +28,13 @@ Runbooks serve as:
 
 | Runbook | Symptoms | MTTR | Status |
 |---------|----------|------|--------|
-| *More runbooks will be added as issues are encountered* | - | - | - |
+| [Complete Cluster Reset](./cluster-reset-procedure.md) | Multiple cascading failures, corrupted cluster state | 15-20 min | ✅ Validated |
 
-### Medium Severity
+### Informational (Preventive)
 
 | Runbook | Symptoms | MTTR | Status |
 |---------|----------|------|--------|
-| *More runbooks will be added as issues are encountered* | - | - | - |
+| [Daily Cluster Health Check](./cluster-health-check.md) | N/A - Preventive verification | 2-3 min | ✅ Validated |
 
 ## Runbook Template
 
@@ -95,6 +95,10 @@ When creating new runbooks, follow this structure:
 | kube-proxy CrashLoopBackOff | Inotify exhaustion, network issues | [Cluster DNS Failure](./cluster-dns-failure-inotify-exhaustion.md) |
 | Docker restart fails | Inotify exhaustion | [Cluster DNS Failure](./cluster-dns-failure-inotify-exhaustion.md) |
 | Init container permission errors | PVC corruption after cluster failure | [Cluster DNS Failure](./cluster-dns-failure-inotify-exhaustion.md#related-issues) |
+| Multiple cascading failures | Various, time to reset | [Cluster Reset](./cluster-reset-procedure.md) |
+| Cluster too broken to fix | Corrupted state | [Cluster Reset](./cluster-reset-procedure.md) |
+| Daily verification needed | Preventive maintenance | [Health Check](./cluster-health-check.md) |
+| Before starting work | Verify environment health | [Health Check](./cluster-health-check.md) |
 
 ## General Troubleshooting Workflow
 
@@ -159,4 +163,4 @@ Found a new issue and resolved it? Please:
 
 **Last Updated:** 2025-11-05
 **Maintained By:** SRE Lab Project
-**Runbook Count:** 1
+**Runbook Count:** 3
